@@ -1,6 +1,4 @@
 #include "herocontroller.h"
-#include <Qt>
-#include <QDebug>
 
 HeroController::HeroController(QObject *parent) : QObject(parent)
 {

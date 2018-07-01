@@ -1,6 +1,5 @@
 #include "levelmanager.h"
-#include <QDebug>
-#include <QRandomGenerator>
+
 
 LevelManager::LevelManager(QObject *parent) : QObject(parent)
 {
