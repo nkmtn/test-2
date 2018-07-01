@@ -4,7 +4,8 @@
 #include <QObject>
 #include <QVector2D>
 #include <QVariantList>
-#include <QRandomGenerator>
+//#include <QRandomGenerator>
+#include <stdlib.h>
 
 class LevelManager : public QObject
 {

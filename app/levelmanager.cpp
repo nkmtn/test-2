@@ -20,7 +20,8 @@ QVector2D LevelManager::handleCollisions(QObject *hero, QVariantList arr)
     int ind = (y / 48 + (int)direction.y()) * 15 + x / 48 + (int)direction.x();
 
     while (arr[ind].toInt() != 7) {
-        int r = QRandomGenerator::global()->bounded(4);
+//        int r = QRandomGenerator::global()->bounded(4);
+        int r = rand() % 4;
         switch (r) {
         case 0: direction = QVector2D(1, 0); break;
         case 1: direction = QVector2D(-1, 0); break;
