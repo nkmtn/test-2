@@ -1,5 +1,5 @@
-#include "expand_test.h"
-#include "calculates_primes_test.h"
+#include "herocontroller_test.h"
+#include "levelmanager_test.h"
 
 #include <gtest/gtest.h>
 

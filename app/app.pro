@@ -1,16 +1,22 @@
 TEMPLATE = app
-CONFIG += console
 CONFIG -= app_bundle
-CONFIG -= qt
 
-SOURCES += main.c \
-    utils.c
+QT += quick
+CONFIG += c++11
+
+SOURCES += \
+    herocontroller.cpp \
+    levelmanager.cpp \
+    main.cpp
 
 HEADERS += \
-    utils.h
+    herocontroller.h \
+    levelmanager.h
 
 QMAKE_CFLAGS += -Wall -Wextra -Werror
 
 # gcov
 QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += -lgcov
+
+RESOURCES += qml.qrc

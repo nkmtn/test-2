@@ -4,7 +4,7 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG += thread
-CONFIG -= qt
+#CONFIG -= qt
 
 QMAKE_CXXFLAGS += -Wall -Wextra -Werror
 QMAKE_CFLAGS += -Wall -Wextra -Werror
@@ -16,12 +16,14 @@ LIBS += -lgcov
 
 
 HEADERS +=     \
-    ../app/utils.h \
-    calculates_primes_test.h \
-    expand_test.h
+    herocontroller_test.h \
+    levelmanager_test.h \
+    ../app/herocontroller.h \
+    ../app/levelmanager.h
 
 SOURCES +=     main.cpp \
-    ../app/utils.c
+    ../app/levelmanager.cpp \
+    ../app/herocontroller.cpp
 
 INCLUDEPATH += ../app
 
