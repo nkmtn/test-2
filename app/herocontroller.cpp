@@ -8,8 +8,9 @@ HeroController::HeroController(QObject *parent) : QObject(parent)
 
 QVector2D HeroController::handle(QObject *hero, QObject *event)
 {
+    QVariant variant = hero->property("direction");
+
     if (event->property("isAutoRepeat").toBool()) {
-        QVariant variant = hero->property("direction");
         return qvariant_cast<QVector2D>(variant);
     }
 
@@ -34,8 +35,8 @@ QVector2D HeroController::handle(QObject *hero, QObject *event)
         break;
     case Qt::Key_Escape:
         QMetaObject::invokeMethod(hero, "exit");
+        return qvariant_cast<QVector2D>(variant);
     }
 
-    QVariant variant = hero->property("direction");
     return qvariant_cast<QVector2D>(variant);
 }
