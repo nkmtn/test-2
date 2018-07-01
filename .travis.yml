@@ -10,7 +10,6 @@ before_install:
 script:
   - qmake -qt=qt5 -v
   - qmake -qt=qt5
-  - qmake
   - make
   - ./tests/tests
 
