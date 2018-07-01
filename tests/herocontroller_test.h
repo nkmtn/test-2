@@ -6,39 +6,98 @@
 #include "herocontroller.h"
 //}
 
-//TEST(expand, test4)
-//{
-//    int x1, y1;
-//    int nprimes[] = {0, 0, 1, 1, 0};
-//    EXPECT_EQ(expand(4, &x1, &y1, nprimes), 1);
-//    EXPECT_EQ(x1, 2);
-//    EXPECT_EQ(y1, 2);
-//}
+TEST(hero_controller, key_left)
+{
+    HeroController *hc = new HeroController();
 
-//TEST(expand, test6)
-//{
-//    int x1, y1;
-//    int nprimes[] = {0, 0, 1, 1, 0, 1, 0};
-//    EXPECT_EQ(expand(6, &x1, &y1, nprimes), 1);
-//    EXPECT_EQ(x1, 3);
-//    EXPECT_EQ(y1, 3);
-//}
+    QObject *hero = new QObject();
+    QObject *event = new QObject();
 
-//TEST(expand, test8)
-//{
-//    int x1, y1;
-//    int nprimes[] = {0, 0, 1, 1, 0, 1, 0, 1, 0};
-//    EXPECT_EQ(expand(8, &x1, &y1, nprimes), 1);
-//    EXPECT_EQ(x1, 3);
-//    EXPECT_EQ(y1, 5);
-//}
+    QVector2D  direction;
 
-//TEST(expand, test10)
-//{
-//    int x1, y1;
-//    int nprimes[] = {0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0};
-//    EXPECT_EQ(expand(10, &x1, &y1, nprimes), 2);
-//    EXPECT_EQ(x1, 3);
-//    EXPECT_EQ(y1, 7);
-//}
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_Left));
+    direction = hc->handle(hero, event);
 
+    EXPECT_EQ(direction.x(), -1);
+    EXPECT_EQ(direction.y(), 0);
+
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_A));
+    direction = hc->handle(hero, event);
+
+    EXPECT_EQ(direction.x(), -1);
+    EXPECT_EQ(direction.y(), 0);
+}
+
+TEST(hero_controller, key_right)
+{
+    HeroController *hc = new HeroController();
+
+    QObject *hero = new QObject();
+    QObject *event = new QObject();
+
+    QVector2D  direction;
+
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_Right));
+    direction = hc->handle(hero, event);
+
+    EXPECT_EQ(direction.x(), 1);
+    EXPECT_EQ(direction.y(), 0);
+
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_D));
+    direction = hc->handle(hero, event);
+
+    EXPECT_EQ(direction.x(), 1);
+    EXPECT_EQ(direction.y(), 0);
+}
+
+TEST(hero_controller, key_up)
+{
+    HeroController *hc = new HeroController();
+
+    QObject *hero = new QObject();
+    QObject *event = new QObject();
+
+    QVector2D  direction;
+
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_Up));
+    direction = hc->handle(hero, event);
+
+    EXPECT_EQ(direction.x(), 0);
+    EXPECT_EQ(direction.y(), -1);
+
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_W));
+    direction = hc->handle(hero, event);
+
+    EXPECT_EQ(direction.x(), 0);
+    EXPECT_EQ(direction.y(), -1);
+}
+
+TEST(hero_controller, key_down)
+{
+    HeroController *hc = new HeroController();
+
+    QObject *hero = new QObject();
+    QObject *event = new QObject();
+
+    QVector2D  direction;
+
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_Down));
+    direction = hc->handle(hero, event);
+
+    EXPECT_EQ(direction.x(), 0);
+    EXPECT_EQ(direction.y(), 1);
+
+    hero->setProperty("direction", QVariant(QVector2D(1, 0)));
+    event->setProperty("key", QVariant(Qt::Key_S));
+    direction = hc->handle(hero, event);
+
+    EXPECT_EQ(direction.x(), 0);
+    EXPECT_EQ(direction.y(), 1);
+}
