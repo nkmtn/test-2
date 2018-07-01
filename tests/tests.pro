@@ -19,11 +19,13 @@ HEADERS +=     \
     herocontroller_test.h \
     levelmanager_test.h \
     ../app/herocontroller.h \
-    ../app/levelmanager.h
+    ../app/levelmanager.h \
+    heromock.h
 
 SOURCES +=     main.cpp \
     ../app/levelmanager.cpp \
-    ../app/herocontroller.cpp
+    ../app/herocontroller.cpp \
+    heromock.cpp
 
 INCLUDEPATH += ../app
 
